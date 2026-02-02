@@ -15,7 +15,7 @@ const EmailVerification = ({ onLogin }) => {
       setMessage('Verifying your email...');
 
       // Send GET request to match the email link
-      const response = await axios.get(`https://mbox-movies-backend.onrender.com/mbox/user/verify/${token}`, {
+      const response = await axios.get(`https://api.laivestyle.site/mbox/user/verify/${token}`, {
         headers: {
           'Content-Type': 'application/json',
         },

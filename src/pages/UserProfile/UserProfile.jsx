@@ -39,7 +39,7 @@ const UserProfile = ({ user: initialUser }) => {
 
       try {
         setIsLoading(true);
-        const response = await fetch(`https://mbox-movies-backend.onrender.com/mbox/user/single/${storedUser.id}`, {
+        const response = await fetch(`https://api.laivestyle.site/mbox/user/single/${storedUser.id}`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }

@@ -21,7 +21,7 @@ const Favorites = ({ user: initialUser }) => {
 
       try {
         setIsLoading(true);
-        const response = await fetch(`https://mbox-movies-backend.onrender.com/api/favorites`, {
+        const response = await fetch(`https://api.laivestyle.site/api/favorites`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

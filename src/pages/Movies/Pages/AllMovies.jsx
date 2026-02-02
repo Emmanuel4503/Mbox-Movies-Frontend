@@ -175,7 +175,7 @@ const MovieListingPage = () => {
 
   // Construct API URL with query parameters
   const constructApiUrl = useCallback((isLoadMore = false, sortOverride = null, isReset = false) => {
-    const baseUrl = 'https://mbox-movies-backend.onrender.com/api/movies';
+    const baseUrl = 'https://api.laivestyle.site/api/movies';
     const params = new URLSearchParams();
     
     // Always include basic parameters with proper defaults

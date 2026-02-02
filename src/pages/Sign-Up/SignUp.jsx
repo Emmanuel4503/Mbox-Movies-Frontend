@@ -131,7 +131,7 @@ const SignUp = ({ onSignup }) => {
     setIsLoading(true);
     
     try {
-      const response = await fetch('https://mbox-movies-backend.onrender.com/mbox/user/signup', {
+      const response = await fetch('https://api.laivestyle.site/mbox/user/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

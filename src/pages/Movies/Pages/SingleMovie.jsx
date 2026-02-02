@@ -50,7 +50,7 @@ const SingleMovie = () => {
     const fetchMovie = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`https://mbox-movies-backend.onrender.com/api/movies/${movieId}`);
+        const response = await fetch(`https://api.laivestyle.site/api/movies/${movieId}`);
         
         if (!response.ok) {
           throw new Error(`Movie not found (${response.status})`);
@@ -86,7 +86,7 @@ const SingleMovie = () => {
       }
 
       try {
-        const response = await fetch(`https://mbox-movies-backend.onrender.com/api/favorites`, {
+        const response = await fetch(`https://api.laivestyle.site/api/favorites`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -132,8 +132,8 @@ const SingleMovie = () => {
     try {
       const method = isFavorited ? 'DELETE' : 'POST';
       const url = isFavorited
-        ? `https://mbox-movies-backend.onrender.com/api/favorites/${movieId}`
-        : `https://mbox-movies-backend.onrender.com/api/favorites`;
+        ? `https://api.laivestyle.site/api/favorites/${movieId}`
+        : `https://api.laivestyle.site/api/favorites`;
 
       const response = await fetch(url, {
         method,
@@ -178,7 +178,7 @@ const SingleMovie = () => {
         return;
       }
       try {
-        const response = await fetch(`https://mbox-movies-backend.onrender.com/review-comments/movie/${movieId}/stats`);
+        const response = await fetch(`https://api.laivestyle.site/review-comments/movie/${movieId}/stats`);
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -225,7 +225,7 @@ const SingleMovie = () => {
         return;
       }
       try {
-        const response = await fetch(`https://mbox-movies-backend.onrender.com/review-comments/movie/${movieId}/comments`);
+        const response = await fetch(`https://api.laivestyle.site/review-comments/movie/${movieId}/comments`);
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
@@ -259,7 +259,7 @@ const SingleMovie = () => {
       }
 
       try {
-        const response = await fetch(`https://mbox-movies-backend.onrender.com/review-comments/movie/${movieId}/user-rating`, {
+        const response = await fetch(`https://api.laivestyle.site/review-comments/movie/${movieId}/user-rating`, {
           headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'
@@ -322,7 +322,7 @@ const SingleMovie = () => {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${token}`
       });
-      const response = await fetch('https://mbox-movies-backend.onrender.com/review-comments/rating', {
+      const response = await fetch('https://api.laivestyle.site/review-comments/rating', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -344,7 +344,7 @@ const SingleMovie = () => {
       if (result.status === 'success') {
         setUserRating(integerRating);
         localStorage.setItem(`userRating_${movieId}`, integerRating);
-        const statsResponse = await fetch(`https://mbox-movies-backend.onrender.com/review-comments/movie/${movieId}/stats`);
+        const statsResponse = await fetch(`https://api.laivestyle.site/review-comments/movie/${movieId}/stats`);
         if (statsResponse.ok) {
           const statsResult = await statsResponse.json();
           if (statsResult.status === 'success') {
@@ -394,7 +394,7 @@ const SingleMovie = () => {
 
     setSubmittingComment(true);
     try {
-      const response = await fetch('https://mbox-movies-backend.onrender.com/review-comments/comment', {
+      const response = await fetch('https://api.laivestyle.site/review-comments/comment', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
